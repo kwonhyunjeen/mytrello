@@ -1,5 +1,5 @@
-import { Title } from 'app/components';
-import { Fragment } from 'react';
+import { Input, Title } from 'app/components';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { date, dummy } from 'app/utils';
 import {
@@ -41,6 +41,7 @@ const BoardView = ({
 }: BoardViewProps) => {
   const {
     getBoardContent,
+    updateBoard,
     createList,
     deleteList,
     reorderList,
@@ -50,6 +51,46 @@ const BoardView = ({
   } = useKanbanwaveStore();
 
   const { status, data } = useQuery(getBoardContent, [boardIdProp]);
+
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [boardTitle, setBoardTitle] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (data) {
+      setBoardTitle(data.title);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (isEditingTitle && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditingTitle]);
+
+  const handleTitleClick = () => {
+    setIsEditingTitle(true);
+  };
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBoardTitle(event.target.value);
+  };
+
+  const handleUpdateTitle = (
+    event: React.KeyboardEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement>
+  ) => {
+    if (
+      event.type === 'blur' ||
+      (event as React.KeyboardEvent<HTMLInputElement>).key === 'Enter'
+    ) {
+      setIsEditingTitle(false);
+      if (boardTitle.trim() !== '') {
+        updateBoard({ id: boardIdProp, title: boardTitle });
+      } else {
+        setBoardTitle(data?.title || '');
+      }
+    }
+  };
 
   if (status === 'pending') {
     return (
@@ -109,8 +150,26 @@ const BoardView = ({
 
   return (
     <section className="app-base">
-      {/** @todo edit(save) 버튼 만들기 */}
-      <Title className="mb-4 text-white">{board.title}</Title>
+      <div
+        className="mb-4 cursor-pointer"
+        onClick={handleTitleClick}
+        aria-label="board title"
+        role="textbox"
+        tabIndex={0}>
+        {isEditingTitle ? (
+          <Input
+            ref={inputRef}
+            value={boardTitle}
+            wrapperClassName="border-0"
+            inputClassName="input-outline"
+            onChange={handleTitleChange}
+            onKeyDown={handleUpdateTitle}
+            onBlur={handleUpdateTitle}
+          />
+        ) : (
+          <Title className="text-white ">{boardTitle}</Title>
+        )}
+      </div>
       <DragDropContext onDragEnd={handleDragEnd}>
         <ListDroppable
           boardId={board.id}

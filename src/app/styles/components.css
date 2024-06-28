@@ -1,19 +1,25 @@
 @tailwind components;
 
-.divider {
-  height: 0.0625rem;
-  margin: 0;
-}
-
-.divider::after,
-.divider::before {
-  height: 0.05rem;
-}
-
-.dialog-actions > :last-child {
-  @apply ml-2;
-}
-
-.single-icon {
-  @apply btn-xs btn-square btn-ghost;
+@layer components {
+  .divider {
+    height: 0.0625rem;
+    margin: 0;
+  }
+  
+  .divider::after,
+  .divider::before {
+    height: 0.05rem;
+  }
+  
+  .dialog-actions > :last-child {
+    @apply ml-2;
+  }
+  
+  .single-icon {
+    @apply btn-xs btn-square btn-ghost;
+  }
+  
+  .input-outline:focus {
+    @apply border-2 border-blue-500 outline-offset-0;
+  }
 }
