@@ -1,0 +1,17 @@
+:root {
+  /* Colors */
+  --color-default-rgb: 140, 140, 140;
+  --color-primary-rgb: 25, 118, 210;
+  --color-secondary-rgb: 156, 39, 176;
+  --color-success-rgb: 46, 125, 50;
+  --color-warning-rgb: 237, 108, 2;
+  --color-error-rgb: 211, 47, 47;
+
+  --color-default: rgb(var(--color-default-rgb));
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --color-success: rgb(var(--color-success-rgb));
+  --color-warning: rgb(var(--color-warning-rgb));
+  --color-error: rgb(var(--color-error-rgb));
+}
+
