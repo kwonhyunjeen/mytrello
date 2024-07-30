@@ -1,0 +1,31 @@
+.root {
+  padding: 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sizeXs {
+  padding: 4px;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sizeSm {
+  padding: 4px;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.sizeMd {
+  padding: 6px;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.sizeLg {
+  padding: 8px;
+  width: 2.75rem;
+  height: 2.75rem;
+}
