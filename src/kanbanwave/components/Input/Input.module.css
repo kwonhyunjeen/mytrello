@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper.hasLeftIcon .input {
+  padding-left: 2rem;
+}
+
+.wrapper.hasRightIcon .input {
+  padding-right: 2rem;
+}
+
+.iconWithLeft,
+.iconWithRight {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  font-size: 1rem;
+  color: #666;
+}
+
+.iconWithLeft {
+  left: 0.5rem
+}
+
+.iconWithRight {
+  right: 0.5rem
+}
+
+.input {
+  min-width: 0px;
+  width: 100%;
+}
+
+.input.sm {
+  height: 2rem;
+  padding: 0.21875rem 0.75rem;
+}
+
+.input.md {
+  height: 2.5rem;
+  padding: 0.28125rem 0.75rem;
+}
+
+.input.lg {
+  height: 3rem;
+  padding: 0.40625rem 0.75rem; 
+}
+
+.input.standard,
+.input.outlined,
+.input.filled {
+  box-sizing: border-box;
+}
+
+.input.standard {
+  background: none;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  &:focus {
+    border-bottom: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.input.outlined {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  &:focus {
+    border: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.input.filled {
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  &:focus {
+    border-bottom: 1px solid #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.helperText {
+  margin-top: 0.25rem;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Color Variants */
+.input.default {
+  border-color: #ccc;
+}
+
+.input.primary {
+  border-color: #007bff;
+}
+
+.input.secondary {
+  border-color: #6c757d;
+}
+
+.input.success {
+  border-color: #28a745;
+}
+
+.input.warning {
+  border-color: #ffc107;
+}
+
+.input.error {
+  border-color: #dc3545;
+}
+
+.input.filled.default {
+  background-color: #f7f7f7;
+}
+
+.input.filled.primary {
+  background-color: #e7f3ff;
+}
+
+.input.filled.secondary {
+  background-color: #f7f7f7;
+}
+
+.input.filled.success {
+  background-color: #e7f8f1;
+}
+
+.input.filled.warning {
+  background-color: #fff8e7;
+}
+
+.input.filled.error {
+  background-color: #fde7e7;
+}
+
