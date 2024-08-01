@@ -1,0 +1,19 @@
+.root {
+  width: 100%;
+  min-height: 1.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  resize: none;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.root:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
